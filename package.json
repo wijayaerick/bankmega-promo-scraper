@@ -4,7 +4,7 @@
   "description": "Simple script to scrape Bank Mega credit card promotion website",
   "main": "solution.js",
   "scripts": {
-    "scrape": "node solution.js", 
+    "scrape": "node solution.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

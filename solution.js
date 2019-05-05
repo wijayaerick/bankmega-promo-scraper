@@ -16,12 +16,12 @@ async function scrape() {
     let promosWithDetail = await getPromosWithDetail(promos);
     console.log("Creating results..");
     let result = {}
+    categories.forEach(category => {
+        result[category.title] = []
+    })
     promosWithDetail.forEach(promo => {
         let categoryName = promo.category.title;
         delete promo.category;
-        if (!result[categoryName]) {
-            result[categoryName] = []
-        } 
         result[categoryName].push(promo)
     });
     return result;
