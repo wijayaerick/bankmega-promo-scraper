@@ -2,7 +2,7 @@
 
 Bank Mega credit card promotions scraper
 
-Website: https://www.bankmega.com/promo_detail.php
+Website: https://www.bankmega.com/promolainnya.php
 
 ## Usage
 
@@ -41,5 +41,5 @@ make sure that the data has been loaded before invoking parser.
 Actually I could have scraped the data from https://www.bankmega.com/promo_detail/ajax.promolainnya.php 
 and pass the category numbers and pagination. However, that method will require to hardcode 
 the category numbers (travel=1, lifestyle=2, ..., others=6) which is not allowed. Additionaly, the 
-requirement asks to scrape data from https://www.bankmega.com/promo_detail.php, instead of 
+requirement asks to scrape data from https://www.bankmega.com/promolainnya.php, instead of 
 https://www.bankmega.com/promo_detail/ajax.promolainnya.php. 
