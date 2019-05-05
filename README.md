@@ -38,8 +38,8 @@ By simulating the browser, I can "click" the category or page number and then sc
 The drawback is that currently the Nightmare instance will "wait" for 3s after every click to 
 make sure that the data has been loaded before invoking parser. 
 
-Actually I could have scraped the data from https://www.bankmega.com/promo_detail/ajax.promolainnya.php 
+Actually I could have scraped the data from https://www.bankmega.com/ajax.promolainnya.php 
 and pass the category numbers and pagination. However, that method will require to hardcode 
 the category numbers (travel=1, lifestyle=2, ..., others=6) which is not allowed. Additionaly, the 
 requirement asks to scrape data from https://www.bankmega.com/promolainnya.php, instead of 
-https://www.bankmega.com/promo_detail/ajax.promolainnya.php. 
+https://www.bankmega.com/ajax.promolainnya.php. 
