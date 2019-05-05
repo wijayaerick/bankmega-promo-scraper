@@ -21,8 +21,10 @@ caused by [incomplete electron installation](https://github.com/electron/electro
 To validate this behavior, you can run the script with `DEBUG=nightmare* node solution.js` 
 command to see the debug logs from Nightmare. If you see something like this, 
 ```
-$ nightmare electron child process exited with code 127: command not found - you may not have electron installed correctly +3ms
-$ nightmare electron child process not started yet, skipping kill. +0ms
+...
+nightmare electron child process exited with code 127: command not found - you may not have electron installed correctly +3ms
+nightmare electron child process not started yet, skipping kill. +0ms
+...
 ```
 it means that you need to make sure first that Electron is installed correctly. 
 
