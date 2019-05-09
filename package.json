@@ -1,7 +1,7 @@
 {
   "name": "bankmega-promo-scraper",
   "version": "1.0.0",
-  "description": "Simple script to scrape Bank Mega credit card promotion website",
+  "description": "Scrape credit card promotions from Bank Mega website",
   "main": "solution.js",
   "scripts": {
     "scrape": "node solution.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wijayaerick/cermati-scraper.git"
+    "url": "git+https://github.com/wijayaerick/bankmega-promo-scraper.git"
   },
   "keywords": [
     "scraper"
