@@ -6,28 +6,29 @@ const fs = require('fs')
 
 const BANK_MEGA_URL = 'https://www.bankmega.com/promolainnya.php';
 const WAIT_AFTER_CLICK = 3000;
+axios.defaults.timeout = 20000;
 
 async function scrape() {
     console.log("Scraping categories..");
-    let categories = await parseCategories();
+    let categories = await getCategories();
     console.log("Scraping promotions..");
     let promos = await getPromos(categories);
     console.log("Scraping promotions detail..");
     let promosWithDetail = await getPromosWithDetail(promos);
     console.log("Creating results..");
-    let result = {}
+    let result = {};
     categories.forEach(category => {
-        result[category.title] = []
-    })
+        result[category.title] = [];
+    });
     promosWithDetail.forEach(promo => {
         let categoryName = promo.category.title;
         delete promo.category;
-        result[categoryName].push(promo)
+        result[categoryName].push(promo);
     });
     return result;
 }
 
-async function parseCategories() {
+async function getCategories() {
     return axios.get(BANK_MEGA_URL).then((response) => {
         if (response && response.status == 200 && response.data) {
             return $('#subcatpromo img', response.data).map((i, el) => el.attribs).get();
@@ -121,7 +122,9 @@ async function getPromoWithDetail(promo) {
             }
             return promo;
         }).catch((err) => {
-            console.log(`  Error when scraping details from ${promo.url}. Error: ${err}`);
+            console.log(`  Error when scraping details from ${promo.url}  (${err})`);
+            promo.error = err.message;
+            return promo;
         });
 }
 
@@ -145,11 +148,11 @@ function parsePromoDetail(response) {
 
 function periodToDayMonthYear(period) {
     let [day, month, year] = period.split(" ");
-    return { day: day, month: month, year: year }
+    return { day: day, month: month, year: year };
 }
 
 scrape().then((promos) => {
-    const filename = 'solution.json'
+    const filename = 'solution.json';
     console.log(`Writing results to ${filename}..`);
     fs.writeFileSync(filename, JSON.stringify(promos, null, 4));
     console.log('Done');
